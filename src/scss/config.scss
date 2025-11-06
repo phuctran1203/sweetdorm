@@ -1,0 +1,108 @@
+$background-color: #fff;
+$secondary-color: black;
+$primary-color: rgb(0, 170, 0);
+$primary-gradient: linear-gradient(to bottom right, rgb(0, 200, 0), rgb(0, 170, 0));
+$primary-text-color: rgb(0, 140, 0);
+$invert-box-shadow: -2px -2px 3px 0px rgba(0, 70, 0, 0.08) inset, -1px 0px 10px 0px rgba(0, 70, 0, 0.08) inset;
+$border-radius: 25px;
+$lg: 678px;
+
+.fill-btn {
+	background-color: transparent;
+	border: none;
+	border-radius: $border-radius;
+	padding: 10px 20px;
+	color: white;
+	position: relative;
+	transition: all 0.15s ease-out;
+	&::before {
+		z-index: -2;
+		position: absolute;
+		content: "";
+		inset: 0;
+		border-radius: $border-radius;
+		background-color: rgba(0, 165, 0, 100);
+		transition: all 0.15s ease-out;
+	}
+	&::after {
+		z-index: -1;
+		position: absolute;
+		content: "";
+		inset: 0;
+		opacity: 0;
+		border-radius: $border-radius;
+		background: $primary-gradient;
+		transition: all 0.15s ease-out;
+	}
+
+	&:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 1px 2px 0 rgba(0, 70, 0, 0.537);
+		&::after {
+			opacity: 1;
+		}
+	}
+}
+.border-btn {
+	// background-color: rgba(0, 177, 0, 0.02);
+	background-color: transparent;
+	box-shadow: $invert-box-shadow;
+	border: none;
+	border-radius: $border-radius;
+	padding: 10px 15px;
+	color: $primary-text-color;
+	text-decoration: none;
+	transition: all 0.15s ease-out;
+	position: relative;
+	// overflow: hidden;
+	&::before {
+		z-index: -1;
+		position: absolute;
+		content: "";
+		inset: 0;
+		border-radius: $border-radius;
+		background: $primary-gradient;
+		opacity: 0;
+		transition: all 0.15s ease-out;
+	}
+
+	&:hover {
+		&::before {
+			opacity: 1;
+		}
+		// transform: translateY(-4px);
+		box-shadow: 0 1px 2px 0 rgba(0, 95, 0, 0.348);
+		border-color: transparent;
+		color: white;
+	}
+}
+h1 {
+	font-size: clamp(32px, 5vw, 50px);
+}
+
+h2 {
+	font-size: clamp(30px, 4.5vw, 46px);
+}
+
+h3 {
+	font-size: clamp(24px, 4.5vw, 34px);
+}
+
+h4 {
+	font-size: clamp(22px, 3.5vw, 28px);
+}
+
+h5 {
+	font-size: clamp(16px, 3.5vw, 20px);
+}
+
+p,
+label,
+a,
+span,
+button {
+	font-size: clamp(14px, 2.5vw, 16px);
+}
+p {
+	margin: 0;
+}

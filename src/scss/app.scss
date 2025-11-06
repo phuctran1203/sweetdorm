@@ -1,0 +1,344 @@
+@import "../scss/config.scss";
+::-webkit-scrollbar {
+	width: 6px;
+}
+::-webkit-scrollbar-button {
+	background: $background-color;
+}
+::-webkit-scrollbar-track-piece {
+	background: $background-color;
+}
+::-webkit-scrollbar-thumb {
+	background: #8c8c8c;
+	border-radius: 16px;
+}
+body {
+	font-family: "Roboto", sans-serif;
+}
+
+header {
+	position: sticky;
+	top: 0;
+	width: 100%;
+	z-index: 100;
+	background: #ffffff05;
+	backdrop-filter: blur(4px);
+	// @media (max-width: $g) {
+	// 	&::before {
+	// 		background: white;
+	// 	}
+	// }
+	.navbar-brand {
+		.brand-img {
+			width: 55px;
+			aspect-ratio: 1/1;
+			overflow: hidden;
+			img {
+				width: 100%;
+				transform: scale(150%);
+			}
+		}
+		.brand-name {
+			font-family: "Poetsen One", sans-serif;
+			color: $primary-text-color;
+		}
+	}
+	.navbar-toggler:focus {
+		box-shadow: none;
+	}
+	.nav-item {
+		font-family: "Poppins", sans-serif;
+		border-radius: $border-radius;
+		position: relative;
+		overflow: hidden;
+		&::before {
+			position: absolute;
+			z-index: -1;
+			content: "";
+			inset: 0;
+			opacity: 0;
+			transition: all 0.15s ease-out;
+			background: $primary-gradient;
+		}
+		button {
+			padding: 7px 0px;
+			color: $primary-text-color;
+		}
+
+		&.active,
+		&:not(.active):hover {
+			&::before {
+				opacity: 1;
+			}
+			button {
+				color: white;
+			}
+		}
+	}
+}
+#show-full {
+	z-index: 100;
+	position: sticky;
+	top: 0px;
+	background-color: #0000008e;
+	width: 100%;
+	height: 100vh;
+	display: grid;
+	place-content: center;
+	& > div {
+		width: fit-content;
+		height: fit-content;
+
+		#x-mark {
+			position: absolute;
+			top: 30px;
+			right: 30px;
+			padding: 3px;
+			aspect-ratio: 1/1;
+			font-size: 35px;
+			color: white;
+			cursor: pointer;
+			border-radius: 50%;
+		}
+		img {
+			max-width: 90vw;
+			max-height: 90vh;
+		}
+	}
+}
+
+#welcome {
+	transform: translateY(-80px);
+	height: 100vh;
+	font-family: "Poppins", sans-serif;
+	& > :nth-child(1) {
+		position: relative;
+		div {
+			position: absolute;
+			z-index: -1;
+			width: min(100vw, 700px);
+			top: 58%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			overflow: hidden;
+			img {
+				width: 100%;
+				animation: slideUp 0.8s ease-out;
+			}
+			@media only screen and (max-width: 450px) {
+				img {
+					animation: slideUp2 0.8s ease-out both;
+				}
+				@keyframes slideUp2 {
+					from {
+						opacity: 0;
+						transform: scale(110%) translateY(20px);
+					}
+					to {
+						transform: scale(110%) translateX(0);
+					}
+				}
+			}
+		}
+		h1 {
+			letter-spacing: 5px;
+			color: white;
+			animation: slideUp 0.8s ease-out;
+		}
+		h5 {
+			width: fit-content;
+			margin: 0 auto;
+			color: white;
+			animation: slideUp 0.8s ease-out 0.25s both;
+		}
+	}
+
+	#explore-more {
+		cursor: pointer;
+		color: $primary-color;
+		animation: slideUp 0.8s ease-out 0.35s both;
+	}
+	@keyframes slideUp {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			transform: translateX(0);
+		}
+	}
+}
+
+.heading {
+	width: fit-content;
+	// margin: 0 auto;
+	position: relative;
+	div {
+		z-index: -1;
+		position: absolute;
+		width: 100%;
+		transform: translateY(-20%);
+		img {
+			width: 100%;
+		}
+	}
+
+	h3 {
+		padding: 0 50px;
+		width: fit-content;
+		color: $primary-text-color;
+		color: white;
+	}
+}
+
+#about {
+	padding-top: 80px;
+	#service {
+		padding-top: 80px;
+	}
+
+	#what-is {
+		& > :first-child {
+			color: $primary-text-color;
+			// background: $primary-gradient;
+			padding: 20px 25px;
+			border-radius: 20px;
+			box-shadow: $invert-box-shadow;
+		}
+		& > :last-child {
+			height: 500px;
+			.pc-show {
+				position: relative;
+				& > * {
+					right: 0;
+					position: absolute;
+					z-index: 1;
+					width: 300px;
+					height: fit-content;
+				}
+				& > :nth-child(1) {
+					img {
+						border-radius: 100px;
+					}
+				}
+				& > :nth-child(2) {
+					transform: translate(-70%, 80%);
+					img {
+						border-radius: 30px;
+					}
+				}
+				& > :nth-child(3) {
+					transform: translate(-120%, 20%);
+					img {
+						border-radius: 20px;
+					}
+				}
+			}
+			.mb-show > * {
+				border-radius: $border-radius;
+			}
+		}
+	}
+	#service {
+		.card {
+			border-width: 0px;
+			border-radius: 8px;
+			border-top-right-radius: 25px;
+			border-bottom-left-radius: 25px;
+			overflow: hidden;
+			box-shadow: 0 0px 3px rgba(0, 0, 0, 0.1), 0 3px 4px rgba(0, 0, 0, 0.15);
+			color: $primary-text-color;
+			transition: all 0.25s ease;
+			&:hover {
+				transform: translateY(-7px);
+			}
+			.icon {
+				position: absolute;
+				top: 0;
+				right: 0;
+				background-color: $primary-color;
+				color: white;
+				padding: 0 18px;
+				border-bottom-left-radius: 25px;
+			}
+		}
+	}
+	#slider {
+		.swiper {
+			width: 100%;
+			height: 100%;
+			cursor: grab;
+			.swiper-slide {
+				text-align: center;
+				font-size: 18px;
+				background: #fff;
+				height: 400px;
+				border-radius: 16px;
+				overflow: hidden;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				position: relative;
+				.cover {
+					opacity: 0;
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: 0;
+					background-color: rgba(0, 0, 0, 0.5);
+					display: grid;
+					place-items: center;
+					transition: all 0.2s ease;
+				}
+				&:hover > .cover {
+					opacity: 1;
+				}
+
+				img {
+					display: block;
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+			.swiper-button-prev::after,
+			.swiper-button-next::after {
+				color: white;
+				font-size: clamp(30px, 4vw, 35px);
+				&:hover {
+					background-color: black;
+				}
+			}
+			.swiper-pagination span {
+				background-color: white;
+			}
+		}
+	}
+}
+#locate {
+	& > .row {
+		* {
+			color: $primary-text-color;
+		}
+	}
+}
+#contact {
+	padding-top: 80px;
+	*:not(h3) {
+		color: $primary-text-color;
+	}
+}
+
+@media (max-width: $lg) {
+	::-webkit-scrollbar {
+		width: 0;
+	}
+	#welcome {
+		transform: translateY(-100px);
+	}
+	#about > #what-is > :last-child {
+		height: max-content;
+	}
+}
